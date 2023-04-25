@@ -11,6 +11,7 @@ const { MONGOURI } = require("./config/keys");
 const app = express();
 
 // db
+console.log("mongo : ",MONGOURI);
 mongoose
   .connect(MONGOURI, {
     useNewUrlParser: true,
