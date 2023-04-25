@@ -5,6 +5,8 @@ import Invoice from "./Invoice";
 import { useHistory } from "react-router-dom";
 
 const Order = ({ order }) => {
+  console.log(order, "order");
+
   const showInvoice = (order) => (
     <PDFDownloadLink
       document={<Invoice order={order} />}

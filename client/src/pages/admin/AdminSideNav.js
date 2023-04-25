@@ -61,6 +61,10 @@ const AdminSideNav = () => {
     },
   ];
 
+  console.log(
+    items.find((_item) => location.pathname.startsWith(_item.path)).key
+  );
+
   const [selectedKey, setSelectedKey] = useState(
     items.find((_item) => location.pathname.startsWith(_item.path)).key
   );
