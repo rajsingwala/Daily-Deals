@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const Cart = require("../models/cart");
 const { authCheck } = require("../middlewares/auth");
-const { STRIPE_KEY } = require("../config/dev");
+const { STRIPE_KEY } = require("../config/prod");
 const stripe = require("stripe")(STRIPE_KEY);
 
 router.post("/create-payment-intent", authCheck, async (req, res) => {
