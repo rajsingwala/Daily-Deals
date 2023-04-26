@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 // const morgan = require("morgan");
 const fs = require("fs");
 // require("dotenv").config();
-const { MONGOURI } = require("./config/dev");
+const { MONGOURI } = require("./config/prod");
 
 // app
 const app = express();
