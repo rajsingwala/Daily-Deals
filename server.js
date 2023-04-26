@@ -5,14 +5,12 @@ const bodyParser = require("body-parser");
 // const morgan = require("morgan");
 const fs = require("fs");
 // require("dotenv").config();
-const { MONGOURI } = require("./config/keys");
+const { MONGOURI } = require("./config/dev");
 
 // app
 const app = express();
 
 // db
-console.log("prod : ",process.env.NODE_ENV);
-console.log("mongo : ",MONGOURI);
 mongoose
   .connect(MONGOURI, {
     useNewUrlParser: true,
@@ -31,13 +29,12 @@ app.use(bodyParser.json({ limit: "50mb" }));
 // routes
 fs.readdirSync("./routes").map((r) => app.use(require("./routes/" + r)));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  const path = require("path");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+const path = require("path");
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // port
 const port = process.env.PORT || 5000;
