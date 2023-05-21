@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     }
 
     const config = {
-      url: "https://daily-deals0.herokuapp.com/login",
+      url: "https://confused-kilt-newt.cyclic.app/login",
       handleCodeInApp: true,
     };
 

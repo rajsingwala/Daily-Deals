@@ -43,7 +43,7 @@ const Register = () => {
     }
 
     const config = {
-      url: "https://daily-deals0.herokuapp.com/register/complete-registration",
+      url: "https://confused-kilt-newt.cyclic.app/register/complete-registration",
       handleCodeInApp: true,
     };
 
